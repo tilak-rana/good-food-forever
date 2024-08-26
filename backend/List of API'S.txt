@@ -1,0 +1,32 @@
+List of API'S for zomato clone project
+
+Homepage:
+ -> get locations
+ -> get restaurantBylocationID
+ -> get mealtype
+ -> post signup
+ -> post createaccount
+
+Filter Page:
+ 7 API'S
+ -> Post locations
+ -> Post Cuisine
+ -> Post Cost
+      -> Higher Cost
+      -> Lower Cost
+ -> Post Sort
+ -> Post Pagination
+ -> Mealtype
+
+Restaurant page:
+  -> Get restaurantDetailsByID
+  -> Get MenuItemsByRestaurantId
+
+  -> Post orderDetails
+  -> Post UserDetails
+
+  -> Post Payments
+
+  -> Get OrdersByUser
+  -> Get OrderDetailsByRestaurantID
+  

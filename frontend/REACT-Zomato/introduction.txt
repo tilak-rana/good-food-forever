@@ -1,0 +1,36 @@
+REACT JS
+
+Installation Steps:
+
+-> Select a folder (except to derives where you have your systems program files)
+
+-> Create a folder, and give it a name.
+-> Inside the folder's URL you can type CMD, or select the folder in vs code, and go to terminal.
+
+-> Type => npm install create-react-app -g -> Once the installation is complete, then type (in CMD or terminal) => create-react-app <Project_name>
+    Project_name - 
+     > Project's name, or File name, Or Folder name
+     > the name should be in small letters or lower case only
+
+Strat with REACT:
+
+-. Select hte respective folder created for react in VS studio code
+-> check your package.json file if it is created or not. IF OTHER project are the first time, need
+-> once done, go to the terminal , and type => npm Strat
+-. once started, the React app starts processing at localhost:3000 (React works only at port number 3000)
+
+-> Lifecycle of react components : in react there are 3 phases :-
+  -> MOUNTING Phases: Initially mount to the DOM
+     > Constructor
+     > Render
+     > Component Did Mount: Use dfor binding with API called data
+  -> UPDATING Phases: User Interaction
+      > Render
+
+  -> UNMOUNTING Phases: Components get unmounted from the DOM
+      > Component Did Mount - local storage or session storage   
+
+Things to be considered to convert a HTML page to a REACT page:
+  -> In HTML comments are passed (<!--comment  -->) but in react {/*comment*/}
+  -> class convert into className
+  -> In react all the data would we inside double qoutes("")
