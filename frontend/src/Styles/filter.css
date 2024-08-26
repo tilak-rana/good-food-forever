@@ -1,0 +1,82 @@
+#logo {
+    margin-left: 150px;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #dc3545;
+    text-decoration: none;
+}
+
+/* Adjustments for mobile views */
+@media (max-width: 768px) {
+    #navbar .btn {
+        font-size: 0.8rem;
+    }
+
+    #filter-btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .card-footer {
+        text-align: center;
+    }
+}
+
+#navbar {
+    background-color: #dc3545;
+}
+
+#navbar a {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+#filter-btn {
+    display: none;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+    color: #192F60;
+}
+
+@media (max-width: 576px) {
+    #navbar a {
+        font-size: 1.2rem;
+    }
+
+    #filters {
+        display: none;
+    }
+
+    #logo {
+        margin-left: 10px;
+        /* Adjust margin to shift the logo to the left */
+    }
+
+    #filter-btn {
+        display: inline-block;
+    }
+}
