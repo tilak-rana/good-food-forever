@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'; // Import PropTypes
 import QuickSearchItem from "./QuickSearchItem";
 
 class Quicksearch extends React.Component {
@@ -12,18 +13,26 @@ class Quicksearch extends React.Component {
                         <h6 id="container-subtitle" className="text-secondary text-center">Discover restaurants by type of meal</h6>
                     </div>
                     <div className="row g-4">
-                            {
-                                mealtypeData.map((item) => {
-                                    return (
-                                        <QuickSearchItem data={item} />
-                                    )
-                                })
-                            }
+                        {
+                            mealtypeData.map((item) => (
+                                <QuickSearchItem key={item.id} data={item} />
+                            ))
+                        }
                     </div>
                 </section>
             </div>
-        )
+        );
     }
 }
+
+// Optional: Define default props
+Quicksearch.defaultProps = {
+    mealtypeData: [],
+};
+
+// Optional: Define prop types
+Quicksearch.propTypes = {
+    mealtypeData: PropTypes.array.isRequired,
+};
 
 export default Quicksearch;

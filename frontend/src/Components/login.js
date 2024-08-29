@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../Styles/LoginPage.css';
+import navHook from './navHook'; // Adjusted import for navHook
 
-const LoginPage = () => {
+const LoginPage = ({ navigate }) => {
     // Initialize state for form fields
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate(); 
 
     // Handle input changes
     const handleChange = (e) => {
@@ -29,12 +28,14 @@ const LoginPage = () => {
             const result = await response.json();
             if (response.ok) {
                 console.log(alert(result.message));
-                // console.log(result.user.name);
-                // console.log(result.user.email);
-                localStorage.setItem('authToken', result.user.name);
-                localStorage.setItem('userName',result.user.email);
-                navigate('/');
-                // Handle successful login (e.g., redirect to dashboard)
+                localStorage.setItem('authToken', result.user.email);
+                localStorage.setItem('userName', result.user.name);
+
+                // Check for profile image and store it, or use a default image
+                const profileImage = result.user.profileImage || '/assets/default-profile.png';
+                localStorage.setItem('profileImage', profileImage);
+
+                navigate('/'); // Redirect to home page after successful login
             } else {
                 alert(result.message || 'Login failed');
             }
@@ -44,7 +45,6 @@ const LoginPage = () => {
         }
         setEmail('');
         setPassword('');
-
     };
 
     return (
@@ -64,13 +64,12 @@ const LoginPage = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">Email address</label>
-                            <input type="email" className="form-control" id="email" name="email" value={email} onChange={handleChange} placeholder="Enter email" required
-                            />
+                            <input type="email" className="form-control" id="email" name="email" value={email} onChange={handleChange} placeholder="Enter email" required />
                         </div>
 
                         <div className="mb-3">
                             <label htmlFor="password" className="form-label">Password</label>
-                            <input type="password" className="form-control" id="password" name="password" value={password} onChange={handleChange} placeholder="Password" required/>
+                            <input type="password" className="form-control" id="password" name="password" value={password} onChange={handleChange} placeholder="Password" required />
                         </div>
 
                         <button type="submit" className="btn btn-danger w-100 mt-4">
@@ -106,4 +105,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default navHook(LoginPage);

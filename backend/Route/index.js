@@ -14,5 +14,7 @@ route.post('/signup',UserController.postSignUp);
 route.post('/login',UserController.postLogin);
 route.post('/filter',restaurantController.postFilterRestuarant);
 route.get('/restaurants/:RestId',restaurantController.getRestaurantDetailsByID);
+route.get('/menu/:resId', menuController.getMenuByResId);
+route.post('/orders', createOrder);
 
 module.exports = route;

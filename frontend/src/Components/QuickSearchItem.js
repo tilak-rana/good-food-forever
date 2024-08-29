@@ -1,26 +1,29 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import navHook from "./navHook"; // Adjust the path if needed
 
-const QuickSearchItem = (props) => {
-    const { id, name, content, image } = props.data;
+class QuickSearchItem extends React.Component {
+    // Define the showFilter method
+    showFilter = () => {
+        this.props.navigate(`/filter`, { replace: true });
+        
+    };
 
-        const navigate = useNavigate();
+    render() {
+        const { name, content, image } = this.props.data;
 
-        const ShowFilter = () => {
-            navigate(`/filter`,{replace:true});
-        }
-
-    return (
-        <div className="col-md-4 bg-light" onClick={() => ShowFilter(id)}>
-            <div className="card border-0 shadow-sm">
-                <img src={`./${image}`} className="card-img-top" alt="Breakfast" />
-                <div className="card-body">
-                    <h5 className="card-title">{name}</h5>
-                    <p className="card-text text-secondary">{content}</p>
+        return (
+            <div className="col-md-4 bg-light" onClick={this.showFilter}>
+                <div className="card border-0 shadow-sm">
+                    <img src={`/${image}`} className="card-img-top" alt={name} />
+                    <div className="card-body">
+                        <h5 className="card-title">{name}</h5>
+                        <p className="card-text text-secondary">{content}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        );
+    }
 }
 
-export default QuickSearchItem;
+// Wrap QuickSearchItem with navHook
+export default navHook(QuickSearchItem);

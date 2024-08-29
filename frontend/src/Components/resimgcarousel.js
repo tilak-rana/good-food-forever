@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Styles/Carousel.css'; // Importing the CSS file
 
 const Carousel = () => {
   return (
@@ -10,13 +11,13 @@ const Carousel = () => {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="./assets/breakfast.png" className="d-block w-100 img-fluid" alt="First slide" style={{ objectFit: 'cover', maxHeight: '400px' }} />
+          <img src="./assets/breakfast.png" className="d-block w-100 img-fluid" alt="First slide" />
         </div>
         <div className="carousel-item">
-          <img src="./assets/lunch.png" className="d-block w-100 img-fluid" alt="Second slide" style={{ objectFit: 'cover', maxHeight: '400px' }} />
+          <img src="./assets/lunch.png" className="d-block w-100 img-fluid" alt="Second slide" />
         </div>
         <div className="carousel-item">
-          <img src="./assets/dinner.png" className="d-block w-100 img-fluid" alt="Third slide" style={{ objectFit: 'cover', maxHeight: '400px' }} />
+          <img src="./assets/dinner.png" className="d-block w-100 img-fluid" alt="Third slide" />
         </div>
       </div>
       <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

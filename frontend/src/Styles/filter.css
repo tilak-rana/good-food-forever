@@ -15,13 +15,115 @@
     color: #dc3545;
     text-decoration: none;
 }
+/* General Styles */
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+#RESTAURANT .card {
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#RESTAURANT .card img {
+    border-radius: 10px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#RESTAURANT .card-body {
+    padding: 15px;
+}
+
+#RESTAURANT .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#RESTAURANT .card-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+#RESTAURANT hr {
+    margin: 15px 0;
+    border: 0.5px solid #e2e2e2;
+}
+
+#RESTAURANT .d-flex {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #RESTAURANT .card img {
+        margin: auto;
+        width: 80%;
+        height: auto;
+    }
+
+    #RESTAURANT .card-body {
+        padding: 10px;
+        margin-left: 30px;
+    }
+
+    #RESTAURANT .card-title {
+        font-size: 1rem;
+        
+    }
+
+    #RESTAURANT .d-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #RESTAURANT .d-flex p {
+        margin-bottom: 5px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Larger Screens */
+@media (min-width: 992px) {
+    #RESTAURANT .card img {
+        width: 100px;
+        height: 100px;
+        margin: 0;
+    }
+    #RESTAURANT .card-title {
+        font-size: 1.4rem;
+    }
+
+    #RESTAURANT .d-flex {
+        justify-content: space-between;
+    }
+}
+
+/* Pagination Buttons */
+.text-center button {
+    border-radius: 5px;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+}
 
 /* Adjustments for mobile views */
 @media (max-width: 768px) {
     #navbar .btn {
         font-size: 0.8rem;
     }
-
+    #RESTAURANT .card img {
+        width: 100px;
+        height: 100px;
+        margin: 0;
+    }
     #filter-btn {
         display: block;
         width: 100%;
@@ -31,15 +133,6 @@
     .card-footer {
         text-align: center;
     }
-}
-
-#navbar {
-    background-color: #dc3545;
-}
-
-#navbar a {
-    font-size: 1.5rem;
-    font-weight: bold;
 }
 
 .card-footer {
@@ -63,20 +156,9 @@ h4,
 }
 
 @media (max-width: 576px) {
-    #navbar a {
-        font-size: 1.2rem;
-    }
-
-    #filters {
-        display: none;
-    }
-
-    #logo {
-        margin-left: 10px;
-        /* Adjust margin to shift the logo to the left */
-    }
-
-    #filter-btn {
-        display: inline-block;
+    #RESTAURANT .card img {
+        width: 100px;
+        height: 100px;
+        margin: 0;
     }
 }

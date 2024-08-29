@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import '../Styles/SignupPage.css';
-import { useNavigate } from 'react-router-dom';
+import navHook from './navHook'; // Adjusted import for navHook
 
-const SignupPage = () => {
+const SignupPage = ({ navigate }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: ''
     });
-    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({
@@ -32,10 +31,15 @@ const SignupPage = () => {
             if (response.ok) {
                 // Store token and user details in localStorage
                 console.log(result);
-                console.log(result.Signup.name);
                 localStorage.setItem('authToken', result.Signup.email);
                 localStorage.setItem('userName', result.Signup.name);
 
+                // Check for profile image and store it, or use a default image
+                const profileImage = result.Signup.profileImage || '/assets/default-profile.png';
+                localStorage.setItem('profileImage', profileImage);
+
+                // console.log("success", result.Signup.email);
+                // console.log("success", result.Signup.name);
                 console.log(alert(result.message));
                 navigate('/'); // Redirect to home page
             } else {
@@ -97,4 +101,4 @@ const SignupPage = () => {
     );
 };
 
-export default SignupPage;
+export default navHook(SignupPage);

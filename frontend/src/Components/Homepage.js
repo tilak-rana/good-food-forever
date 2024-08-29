@@ -4,47 +4,49 @@ import '../Styles/homepage.css';
 import Banner from './Homepage_banner';
 import QuickSearch from './Homepage_Quicksearch';
 
-
 class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             location: [],
-            mealtypes: []
-        }
+            mealtypes: [],
+            isLoading: true,
+            error: null
+        };
     }
+
     componentDidMount() {
-        // console.log("Componentdidmount ")
-        axios({
-            url: 'http://localhost:5500/location',
-            method: 'Get',
-            headers: { 'Content-Type': 'application/JSON' }
-        })
-            .then(res => {
-
-                // console.log("axios success" ,res.data.loc)
-                this.setState({ location: res.data.loc })
-            })
-            .catch((err) => console.log(err))
-
-        axios({
-            url: 'http://localhost:5500/mealtype',
-            method: 'Get',
-            headers: { 'Content-Type': 'application/JSON' }
-        })
-            .then(res => {
-
-                // console.log("axios success" ,res.data.mealtype)
-                this.setState({ mealtypes: res.data.mealtype })
-            })
-            .catch((err) => console.log(err))
+        // Fetch location and mealtypes data
+        axios.all([
+            axios.get('http://localhost:5500/location', { headers: { 'Content-Type': 'application/JSON' } }),
+            axios.get('http://localhost:5500/mealtype', { headers: { 'Content-Type': 'application/JSON' } })
+        ])
+        .then(axios.spread((locationRes, mealtypeRes) => {
+            this.setState({
+                location: locationRes.data.loc,
+                mealtypes: mealtypeRes.data.mealtype,
+                isLoading: false
+            });
+        }))
+        .catch((err) => {
+            console.error(err);
+            this.setState({ error: 'Failed to fetch data', isLoading: false });
+        });
     }
+
     render() {
-        const { location, mealtypes } = this.state;
-        // console.log("frontend ", mealtypes);
+        const { location, mealtypes, isLoading, error } = this.state;
+
+        if (isLoading) {
+            return <div>Loading...</div>;
+        }
+
+        if (error) {
+            return <div>{error}</div>;
+        }
+
         return (
-            
-            <div >
+            <div>
                 <Banner locationData={location} />
                 <QuickSearch mealtypeData={mealtypes} />
             </div>
