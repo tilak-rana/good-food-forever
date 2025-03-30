@@ -12,9 +12,9 @@ function Router() {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/" element={<PrivateRoute element={<Home />} />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignupPage />} />
-                <Route path="/" element={<PrivateRoute element={<Home />} />} />
                 <Route path="/filter" element={<PrivateRoute element={<Filter />} />} />
                 <Route path="/resDetails" element={<PrivateRoute element={<Details />} />} />
             </Routes>

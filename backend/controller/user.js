@@ -7,7 +7,7 @@ const User = require("../Models/user");
 exports.postSignUp = [
     // Validate and sanitize email
     check('email').isEmail().withMessage('Please enter a valid email address').normalizeEmail(),
-    
+
     // Validate password (ensuring it's a number and converting it later)
     check('password').isNumeric().withMessage('Password must be a number'),
 
